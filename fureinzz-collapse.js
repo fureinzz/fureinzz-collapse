@@ -33,5 +33,15 @@ export class CollapseElement extends LitElement {
         `;
     }
 
+    open() {
+        this.opened = true;
+    }
+    close() {
+        this.opened = false;
+    }
+    toggle() {
+        this.opened ? this.close() : this.open();
+    }
+
 }
 customElements.define('fr-collapse', CollapseElement);
