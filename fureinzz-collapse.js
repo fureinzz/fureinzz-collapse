@@ -33,6 +33,17 @@ export class CollapseElement extends LitElement {
         `;
     }
 
+    get dimensionCSS() {
+        return this.horizontal ? 'maxWidth' : 'maxHeight';
+    }
+
+    get dimensionSize() {
+        return this.horizontal
+            ? this.scrollWidth + 'px'
+            : this.scrollHeight + 'px';
+    }
+
+
     open() {
         this.opened = true;
     }
