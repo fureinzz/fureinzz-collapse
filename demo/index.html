@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>fureinzz-collapse</title>
+</head>
+<body style="padding: 0; width: 0; font-family: Roboto; background: #F8F9FA; font-size: 95.25%;">
+    <style class='main-styles'>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        main{
+            position: absolute;
+            width: 100%; height: 100%;
+            left: 0; top: 0; bottom: 0; right: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        #wrapper{
+            width: 700px;
+            margin: 0 auto;
+            flex: 1;
+            padding-bottom: 40px;
+        }
+        .view-demo{
+            background: #fff;
+            padding: 15px;
+            border-radius: 3px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);;
+        }
+        .collapse-wrapper{
+            background: #F0F5F7;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .collapse-main-content{
+            display: flex;
+            align-items: center;
+        }
+        .collapse-main-content div {
+            color: rgba(0, 0, 0, 0.9);
+            margin-right: 8px;
+        }
+        .title{
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            color: #202124;
+            letter-spacing: .25px;
+            margin-bottom: 7px;
+            padding-top: 10px;
+            padding-bottom: 6px;
+            font-size: 120%;
+            font-weight: 400;
+        }
+        section{
+            margin-bottom: 40px;
+        }
+        section:last-child{
+            margin-bottom: 0;
+        }
+        code{
+            overflow-y: auto;
+            cursor: text;
+            margin-bottom: 10px;
+            display: block;
+            border-radius: 3px;
+            padding: 20px 8px;
+            background: rgba(44, 44, 44, 0.94);
+        }
+        .hr{
+            width: 100%;
+            height: 1px;
+            background: rgba(0, 0, 0, .1);
+            margin-bottom: 10px;
+        }
+        .content{
+            margin-top: 10px;
+            font-size: 91.25%;
+            color:  rgba(0, 0, 0, 0.82);
+        }
+        .fr-button{
+            transition: all .2s ease;
+            display: inline-flex;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 4px;
+            background: #1a73e8
+        }
+        .fr-button:hover{
+            background: #1863c5
+        }
+    </style>
+    <style class="media">
+        @media only screen and (max-width: 780px) {
+            #wrapper{
+                width: 90%;
+            }
+        }
+    </style>
+
+    <main>
+        <div id="wrapper">
+            <section id="Basic">
+                <div>
+                    <h2 class="title">Basic</h2>
+                </div>
+                <div class="view-demo">
+
+                    <code style="text-align: left;">
+<pre style="background: transparent;color:#fff; line-height: 1.37;"><span style="color:#586e75">&lt;</span><span style="color:#268bd2;f">fr-collapse</span><span style="color:#586e75">></span>
+    <span style="color:#586e75">&lt;</span><span style="color:#268bd2;">div</span> <span style="color:#95D1F1">class</span>=<span style="color:#D1987E"><span style="color:#D1987E">"</span>content<span style="color:#D1987E">"</span></span><span style="color:#586e75">></span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit 
+        maiores quia officia tenetur asperiores dolorem quos molestias, 
+        repellat sequi inventore qui rerum eos eligendi, temporibus 
+        distinctio explicabo eaque error? Illum!
+    <span style="color:#586e75">&lt;/</span><span style="color:#268bd2;">div</span><span style="color:#586e75">></span>
+<span style="color:#586e75">&lt;</span><span style="color:#268bd2;">fr-collapse</span><span style="color:#586e75">></span>
+</pre>
+                    </code>
+                    <div class="hr"></div>
+                    <div>
+                        <div class="collapse-wrapper">
+                            <div class="collapse-main-content">
+                                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eveniet dignissimos minus voluptates voluptatem delectus vitae, officia animi iste ducimus perferendis quas eos consectetur recusandae eius obcaecati? Maxime, perspiciatis, reprehenderit ex ipsa, deleniti corporis deserunt perferendis cum adipisci molestias similique?</div>
+                                <fr-toggle-icon index="1" class="expand" style="padding: 5px;"></fr-toggle-icon>
+                            </div>
+                            <fr-collapse index="1">
+                                <div class="content">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores quia officia tenetur asperiores dolorem quos molestias, repellat sequi inventore qui rerum eos eligendi, temporibus distinctio explicabo eaque error? Illum!
+                                </div>
+                            </fr-collapse>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="animation">
+                <div>
+                    <h2 class="title">No animation</h2>
+                </div>
+                <div class="view-demo">
+                    <div>
+ <code style="text-align: left;">
+<pre style="background:transparent;color:#fff; line-height: 1.37;"><span style="color:#586e75">&lt;</span><span style="color:#268bd2;">fr-collapse</span> <span style="color:#95D1F1">noanimation</span><span style="color:#586e75">></span>
+    <span  style="color:#586e75">&lt;</span><span style="color:#268bd2;">div</span> <span style="color:#95D1F1">class</span>=<span style="color:#D1987E"><span style="color:#D1987E">"</span>content<span style="color:#D1987E">"</span></span><span style="color:#586e75">></span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit 
+        maiores quia officia tenetur asperiores dolorem quos molestias, 
+        repellat sequi inventore qui rerum eos eligendi, temporibus 
+        distinctio explicabo eaque error? Illum!
+    <span style="color:#586e75">&lt;/</span><span style="color:#268bd2;">div</span><span style="color:#586e75">></span>
+<span style="color:#586e75">&lt;</span><span style="color:#268bd2;">fr-collapse</span><span style="color:#586e75">></span>
+</pre>
+                    </code>
+                        <div class="hr"></div> 
+                        <div>
+                            <div class="collapse-wrapper">
+                                <div class="collapse-main-content">
+                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eveniet dignissimos minus voluptates voluptatem delectus vitae, officia animi iste ducimus perferendis quas eos consectetur recusandae eius obcaecati? Maxime, perspiciatis, reprehenderit ex ipsa, deleniti corporis deserunt perferendis cum adipisci molestias similique?</div>
+                                    <fr-toggle-icon index="2" class="expand" style="padding: 5px;"></fr-toggle-icon>
+                                </div>
+                                <fr-collapse index="2" noanimation>
+                                    <div class="content">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores quia officia tenetur asperiores dolorem quos molestias, repellat sequi inventore qui rerum eos eligendi, temporibus distinctio explicabo eaque error? Illum!
+                                    </div>
+                                </fr-collapse>
+                            </div>
+                        </div>              
+                    </div>
+                </div>
+            </section>
+            <section id="horizontal">
+                <div>
+                    <h2 class="title">Horizontal</h2>
+                </div>
+                <div class="view-demo">
+                    <div>
+
+ <code style="text-align: left;">
+<pre style="background:transparent;color:#fff; line-height: 1.37;"><span style="color:#586e75">&lt;</span><span style="color:#268bd2;">fr-collapse</span> <span style="color:#95D1F1">horizontal</span><span style="color:#586e75">></span>
+    <span  style="color:#586e75">&lt;</span><span style="color:#268bd2;">div</span> <span style="color:#95D1F1">class</span>=<span style="color:#D1987E"><span style="color:#D1987E">"</span>content<span style="color:#D1987E">"</span></span><span style="color:#586e75">></span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit 
+        maiores quia officia tenetur asperiores dolorem quos molestias, 
+        repellat sequi inventore qui rerum eos eligendi, temporibus 
+        distinctio explicabo eaque error? Illum!
+    <span style="color:#586e75">&lt;/</span><span style="color:#268bd2;">div</span><span style="color:#586e75">></span>
+<span style="color:#586e75">&lt;</span><span style="color:#268bd2;">fr-collapse</span><span style="color:#586e75">></span>
+</pre>
+                    </code>
+                        <div class="hr"></div>
+                        <div>
+                            <div class="collapse-wrapper">
+                                <div class="collapse-main-content">
+                                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eveniet dignissimos minus voluptates voluptatem delectus vitae, officia animi iste ducimus perferendis quas eos consectetur recusandae eius obcaecati? Maxime, perspiciatis, reprehenderit ex ipsa, deleniti corporis deserunt perferendis cum adipisci molestias similique?</div>
+                                    <fr-toggle-icon index="3" class="expand" style="padding: 5px;"></fr-toggle-icon>
+                                </div>
+                                <fr-collapse index="3">
+                                    <div class="content">
+                                        <div class="fr-button expand" index="4">Expand</div>
+                                        <fr-collapse horizontal index="4">
+                                            <div class="content">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores quia officia tenetur asperiores dolorem quos molestias, repellat sequi inventore qui rerum eos eligendi, temporibus distinctio explicabo eaque error? Illum!
+                                            </div>
+                                        </fr-collapse>
+                                    </div>
+                                </fr-collapse>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const buttons = document.querySelectorAll('.expand')
+        const collapseElements = document.querySelectorAll('fr-collapse')
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const index = parseInt(button.getAttribute('index'))
+                
+                collapseElements[index - 1].toggle()
+            })
+        })
+    </script>
+    <script src="collapse-demo.js" type="module"></script>
+</body>
+</html>
