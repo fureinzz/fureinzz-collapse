@@ -4,7 +4,7 @@
   "description": "Adds the ability to collapse the target element",
   "main": "fureinzz-collapse.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "demo": "polymer serve --npm"
   },
   "repository": {
     "type": "git",
