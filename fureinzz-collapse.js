@@ -92,5 +92,40 @@ export class CollapseElement extends LitElement {
             new CustomEvent('animation-opened-changed', {detail: this.opened})
         )
     }
+
+    updated(changedProperties) {
+        changedProperties.forEach((oldValue, property) => {
+            switch (property) {
+                case 'opened':
+                    if (oldValue === true) this._hide();
+                    else if (oldValue === false) this._show();
+
+                    this.dispatchEvent(new CustomEvent('opened-changed', {detail: this.opened}))
+                    break;
+                case 'noAnimation':
+                    oldValue === false
+                        ? this._disableAnimation()
+                        : this._enableAnimation();
+                    break;
+            }
+        });
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+
+        this.noAnimation
+            ? this._disableAnimation()
+            : this._enableAnimation();
+
+        if (!this.opened) {
+            this.style.display = 'none';
+            this.style[this.dimensionCSS] = '0px';
+        }
+    }
+    disconnectedCallback() {
+        super.disconnectedCallback();
+        this.removeEventListener('transitionend', this._transitionEnd);
+    }
 }
 customElements.define('fr-collapse', CollapseElement);
