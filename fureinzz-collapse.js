@@ -1,4 +1,4 @@
-import { html, LitElement } from './node_modules/lit-element/lit-element';
+import { html, LitElement } from 'lit-element';
 
 /**
 *  `fureinzz-collapse` creates a collapsible block of content. For interaction, use toggle(), open(), close() or open, 
@@ -218,4 +218,4 @@ export class CollapseElement extends LitElement {
         this.removeEventListener('transitionend', this._transitionEnd);
     }
 }
-customElements.define('fr-collapse', CollapseElement);
+customElements.define('fureinzz-collapse', CollapseElement);
