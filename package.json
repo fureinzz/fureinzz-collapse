@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/fureinzz/fureinzz-collapse/issues"
   },
-  "homepage": "https://github.com/fureinzz/fureinzz-collapse#readme"
+  "homepage": "https://github.com/fureinzz/fureinzz-collapse#readme",
+  "dependencies": {
+    "lit-element": "^2.3.1"
+  },
+  "devDependencies": {
+    "polymer-cli": "^1.9.11"
+  }
 }
