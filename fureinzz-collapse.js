@@ -44,7 +44,7 @@ export class CollapseElement extends LitElement {
             horizontal: { type: Boolean, reflect: true, attribute: true },
 
             /**
-            * Set noAnimation to true to disable animation
+            * Set `noAnimation` to true to disable animation
             * @property
             * @type {Boolean}
             */ 
