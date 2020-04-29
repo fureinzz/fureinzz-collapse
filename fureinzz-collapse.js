@@ -15,6 +15,23 @@ export class CollapseElement extends LitElement {
             noAnimation: { type: Boolean, reflect: true, attribute: true }
         };
     }
+    render() {
+        return html `
+            <style>
+                :host{
+                    display: block;
+                    overflow: hidden;
+                    will-change: max-height, max-width;
+                    transition-property: max-height, max-width
+                }
+            </style>
+
+            <div>
+                <slot></slot>
+            </div>    
+
+        `;
+    }
 
 }
 customElements.define('fr-collapse', CollapseElement);
