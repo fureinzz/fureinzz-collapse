@@ -54,5 +54,20 @@ export class CollapseElement extends LitElement {
         this.opened ? this.close() : this.open();
     }
 
+    _enableAnimation() {
+        this.style.transition = 'var(--speed, 300ms) ease';
+    }
+    _disableAnimation() {
+        this.style.transition = '';
+    }
+    _transitionEnd() {
+        this.style[this.dimensionCSS] === '0px'
+            ? this.style.display = 'none'
+            : this.style[this.dimensionCSS] = '';
+
+        this.dispatchEvent(
+            new CustomEvent('animation-opened-changed', {detail: this.opened})
+        )
+    }
 }
 customElements.define('fr-collapse', CollapseElement);
