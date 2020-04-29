@@ -10,9 +10,9 @@ When interacting with the `fureinzz-collapse` element, it configures the max-wid
 **Example:**
 ```html
 <fureinzz-collapse>
-	<div style="padding: 10px; color: grey;">
-		<span>...</span>
-	</div>
+  <div style="padding: 10px; color: grey;">
+    <span>...</span>
+  </div>
 </fureinzz-collapse>
 ```
 
@@ -22,21 +22,21 @@ When interacting with the `fureinzz-collapse` element, it configures the max-wid
 ## Properties
 | Property | type | Description | Default |
 | --- | --- | --- | --- |
-| `opened` | Boolean | Set ** true ** to show object contents | `false` |
-| `noAnimation` | Boolean | Set ** true ** to disable animation  | `false` |
-| `horizontal` | Boolean | If ** true **, the content opens horizontally| `false` |
+| `opened` | Boolean | Set **true** to show object contents | `false` |
+| `noAnimation` | Boolean | Set **true** to disable animation  | `false` |
+| `horizontal` | Boolean | If **true**, the content opens horizontally| `false` |
 
 ## Methods
 | Method | Description | 
 | --- | --- | 
 | `open`  | Changes `opened` = **true** and shows the content|
-| `close`  | Changes `opened` = ** false** and hides the content |
+| `close`  | Changes `opened` = **false** and hides the content |
 | `toggle`  |  Changes `opened` = `!opened` and shows / hides the content depending on the new `opened`value|
 
 ## Events
 | Event | Description | 
 | --- | --- | 
-| `opened-changed`  | Triggered when the `opened`state changes |
+| `opened-changed`  | Triggered when the `opened` state changes |
 | `animation-opened-changed`  |Triggered when the transition animation ends |
 
 
