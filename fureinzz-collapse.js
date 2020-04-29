@@ -4,10 +4,13 @@ export class CollapseElement extends LitElement {
     constructor() {
         super();
         this.opened = false;
+        this.horizontal = false;
     }
     static get properties() {
         return {
             opened: { type: Boolean, reflect: true, attribute: true },
+            horizontal: { type: Boolean, reflect: true, attribute: true },
+
         };
     }
 
