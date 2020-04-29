@@ -54,6 +54,29 @@ export class CollapseElement extends LitElement {
         this.opened ? this.close() : this.open();
     }
 
+    _show() {
+        this.style.display = '';
+        this.noAnimation
+            ? this.style[this.dimensionCSS] = ''
+            : this.style[this.dimensionCSS] = this.dimensionSize;
+
+        this.setAttribute('tabindex', '');
+    }
+
+    _hide() {
+        if (this.noAnimation) {
+            this.style[this.dimensionCSS] = '0px';
+            this.style.display = 'none';
+        }
+        else {
+            this.style[this.dimensionCSS] = this.dimensionSize;
+            let timer = setTimeout(() => {
+                this.style[this.dimensionCSS] = '0px';
+                clearTimeout(timer);
+            }, 0);
+        }
+        this.tabIndex = -1;
+    }
     _enableAnimation() {
         this.style.transition = 'var(--speed, 300ms) ease';
     }
