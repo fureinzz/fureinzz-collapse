@@ -1,11 +1,15 @@
 # &lt;fureinzz-collapse&gt;
 
+##### Language:
++ [English](https://github.com/fureinzz/fureinzz-collapse/blob/master/README.md)
++ [Russian](https://github.com/fureinzz/fureinzz-collapse/blob/master/README.ru.md)
+
 `fureinzz-collapse`  creates a collapsible block of content. For interaction, use `toggle ()`, `open ()`, `close ()` or `open`, in order to hide / show the contents. By default, the contents of the element will be collapsed.
 
 
 When interacting with the `fureinzz-collapse` element, it configures the max-width/max-height depending on the specified `horizontal` attribute and shows/hides the content.
 
-**Warning:** for proper functioning, do not set  **margin**/** padding**  directly to the object, instead place the block inside the element and style it
+**Warning:** for proper functioning, do not set  **margin**/**padding**  directly to the object, instead place the block inside the element and style it
 
 **Example:**
 ```html
