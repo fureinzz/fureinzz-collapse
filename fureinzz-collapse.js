@@ -145,7 +145,7 @@ export class CollapseElement extends LitElement {
     }
 
     /**
-    * Enable animation if `noAnimation` == true
+    * Enable animation if `noAnimation` == false
     * 
     * @private
     * @returns {void}
