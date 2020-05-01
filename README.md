@@ -1,5 +1,9 @@
 # &lt;fureinzz-collapse&gt;
 
+[![npm](https://img.shields.io/npm/v/@fureinzz/fureinzz-collapse?style=flat-square)](https://www.npmjs.com/package/@fureinzz/fureinzz-collapse)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/@fureinzz/fureinzz-collapse)
+![license](https://img.shields.io/github/license/fureinzz/fureinzz-collapse?style=flat-square)
+
 ##### Language:
 + [English](https://github.com/fureinzz/fureinzz-collapse/blob/master/README.md)
 + [Russian](https://github.com/fureinzz/fureinzz-collapse/blob/master/README.ru.md)
