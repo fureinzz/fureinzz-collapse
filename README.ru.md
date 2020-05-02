@@ -25,9 +25,6 @@
 </fureinzz-collapse>
 ```
 
-## Демонстрация
-![collapse.demo.gif](https://github.com/fureinzz/fureinzz-collapse/blob/master/demo-image/fr-collapse.demo.gif?raw=true)
-
 ## Cвойства
 | Свойство | Тип | Описание | По умолчанию |
 | --- | --- | --- | --- |

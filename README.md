@@ -24,9 +24,6 @@ When interacting with the `fureinzz-collapse` element, it configures the max-wid
 </fureinzz-collapse>
 ```
 
-## Demo
-![collapse.demo.gif](https://github.com/fureinzz/fureinzz-collapse/blob/master/demo-image/fr-collapse.demo.gif?raw=true)
-
 ## Properties
 | Property | type | Description | Default |
 | --- | --- | --- | --- |
