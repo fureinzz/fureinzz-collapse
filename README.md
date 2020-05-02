@@ -4,10 +4,6 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/@fureinzz/fureinzz-collapse)
 ![license](https://img.shields.io/github/license/fureinzz/fureinzz-collapse?style=flat-square)
 
-##### Language:
-+ [English](https://github.com/fureinzz/fureinzz-collapse/blob/master/README.md)
-+ [Russian](https://github.com/fureinzz/fureinzz-collapse/blob/master/README.ru.md)
-
 `fureinzz-collapse`  creates a collapsible block of content. For interaction, use `toggle ()`, `open ()`, `close ()` or `open`, in order to hide / show the contents. By default, the contents of the element will be collapsed.
 
 
