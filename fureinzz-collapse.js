@@ -141,6 +141,7 @@ export class CollapseElement extends LitElement {
                 clearTimeout(timer);
             }, 0);
         }
+
         this.tabIndex = -1;
     }
 
@@ -164,7 +165,7 @@ export class CollapseElement extends LitElement {
     }
 
     /**
-    * Handler for the `transitionend`event
+    * Handler for the `transitionend` event
     * 
     * @private
     * @returns {void}
@@ -179,10 +180,6 @@ export class CollapseElement extends LitElement {
         )
     }
 
-    /**
-    * The `updated` function is triggered every time any 
-    * of the properties are changed
-    */
     updated(changedProperties) {
         changedProperties.forEach((oldValue, property) => {
             switch (property) {
@@ -200,7 +197,6 @@ export class CollapseElement extends LitElement {
             }
         });
     }
-
     connectedCallback() {
         super.connectedCallback();
 
