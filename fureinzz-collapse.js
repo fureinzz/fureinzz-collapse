@@ -31,22 +31,22 @@ export class CollapseElement extends LitElement {
         return {
             /**
             * Set `opened` to true to show the element, false to collapse it
-            * @property
-            * @type {Boolean}
+            * @property {Boolean} opened - The state responsible for rendering the object's content
+            * @type     {Boolean} 
             */ 
             opened: { type: Boolean, reflect: true, attribute: true },
 
             /**
             * If `horizontal` is true, the content opens horizontally, otherwise vertically to true to disable animation
-            * @property
-            * @type {Boolean}
+            * @property {Boolean} horizontal - The state responsible for content orientation
+            * @type     {Boolean}
             */ 
             horizontal: { type: Boolean, reflect: true, attribute: true },
 
             /**
             * Set `noAnimation` to true to disable animation
-            * @property
-            * @type {Boolean}
+            * @property {Boolean} noAnimation - The state responsible for animating content
+            * @type     {Boolean}
             */ 
             noAnimation: { type: Boolean, reflect: true, attribute: true }
         };
@@ -64,9 +64,7 @@ export class CollapseElement extends LitElement {
 
             <div>
                 <slot></slot>
-            </div>    
-
-        `;
+            </div> `
     }
 
     /**
@@ -126,16 +124,18 @@ export class CollapseElement extends LitElement {
     */
     _hide() {
         this.style[this.dimensionCSS] = this.dimensionSize;
-        let timer = setTimeout(() => {
+        
+        // Used for animated transition to the closed state
+        let async = setTimeout(() => {
             this.style[this.dimensionCSS] = '0px';
-            clearTimeout(timer);
+            clearTimeout(async);
         }, 0);
 
         this.setAttribute('tabindex', '-1');
     }
 
     /**
-    * Enable animation if `noAnimation` == false
+    * Enable animation if `noAnimation` === false
     * 
     * @private
     * @returns {void}
@@ -144,7 +144,7 @@ export class CollapseElement extends LitElement {
         this.style.transitionDuration = '';
     }
     /**
-    * Disables animation if `noAnimation` == true
+    * Disables animation if `noAnimation` === true
     * 
     * @private
     * @returns {void}
@@ -193,6 +193,7 @@ export class CollapseElement extends LitElement {
     connectedCallback() {
         super.connectedCallback();
 
+        // Required for instant closing of content without animation when the page is reloaded
         if (!this.opened) {
          this.style.display = 'none';
          this.style[this.dimensionCSS] = '0px';
