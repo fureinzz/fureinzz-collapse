@@ -82,6 +82,9 @@
         .fr-button:hover{
             background: #1863c5
         }
+        fureinzz-collapse[main] {
+            transition: .3s ease;
+        }
     </style>
     <style class="media">
         @media only screen and (max-width: 780px) {
@@ -104,7 +107,7 @@
                                 <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eveniet dignissimos minus voluptates voluptatem delectus vitae, officia animi iste ducimus perferendis quas eos consectetur recusandae eius obcaecati? Maxime, perspiciatis, reprehenderit ex ipsa, deleniti corporis deserunt perferendis cum adipisci molestias similique?</div>
                                 <fr-toggle-icon index="1" class="expand" style="padding: 5px;"></fr-toggle-icon>
                             </div>
-                            <fureinzz-collapse index="1">
+                            <fureinzz-collapse index="1" main>
                                 <div class="content">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores quia officia tenetur asperiores dolorem quos molestias, repellat sequi inventore qui rerum eos eligendi, temporibus distinctio explicabo eaque error? Illum!
                                 </div>
@@ -147,10 +150,10 @@
                                     <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eveniet dignissimos minus voluptates voluptatem delectus vitae, officia animi iste ducimus perferendis quas eos consectetur recusandae eius obcaecati? Maxime, perspiciatis, reprehenderit ex ipsa, deleniti corporis deserunt perferendis cum adipisci molestias similique?</div>
                                     <fr-toggle-icon index="3" class="expand" style="padding: 5px;"></fr-toggle-icon>
                                 </div>
-                                <fureinzz-collapse index="3">
+                                <fureinzz-collapse index="3" main>
                                     <div class="content">
                                         <div class="fr-button expand" index="4">Expand</div>
-                                        <fureinzz-collapse horizontal index="4">
+                                        <fureinzz-collapse horizontal index="4" main>
                                             <div class="content">
                                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores quia officia tenetur asperiores dolorem quos molestias, repellat sequi inventore qui rerum eos eligendi, temporibus distinctio explicabo eaque error? Illum!
                                             </div>
