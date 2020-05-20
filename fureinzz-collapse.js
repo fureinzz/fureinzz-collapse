@@ -95,17 +95,14 @@ export class CollapseElement extends LitElement {
             : this.scrollHeight + 'px';
     }
 
-    /** @public */ 
     open() {
         this.opened = true;
     }
-    /** @public */ 
     close() {
         this.opened = false;
     }
-    /** @public */  
     toggle() {
-        this.opened ? this.close() : this.open();
+        this.opened = !this.opened
     }
     
     /**
@@ -116,9 +113,7 @@ export class CollapseElement extends LitElement {
     */ 
     _show() {
         this.style.display = '';
-        this.noAnimation
-            ? this.style[this.dimensionCSS] = ''
-            : this.style[this.dimensionCSS] = this.dimensionSize;
+        this.style[this.dimensionCSS] = this.dimensionSize;
 
         this.setAttribute('tabindex', '');
     }
@@ -130,19 +125,13 @@ export class CollapseElement extends LitElement {
     * @returns {void}
     */
     _hide() {
-        if (this.noAnimation) {
+        this.style[this.dimensionCSS] = this.dimensionSize;
+        let timer = setTimeout(() => {
             this.style[this.dimensionCSS] = '0px';
-            this.style.display = 'none';
-        }
-        else {
-            this.style[this.dimensionCSS] = this.dimensionSize;
-            let timer = setTimeout(() => {
-                this.style[this.dimensionCSS] = '0px';
-                clearTimeout(timer);
-            }, 0);
-        }
+            clearTimeout(timer);
+        }, 0);
 
-        this.tabIndex = -1;
+        this.setAttribute('tabindex', '-1');
     }
 
     /**
@@ -152,7 +141,7 @@ export class CollapseElement extends LitElement {
     * @returns {void}
     */
     _enableAnimation() {
-        this.style.transition = 'var(--speed, 300ms) ease';
+        this.style.transitionDuration = '';
     }
     /**
     * Disables animation if `noAnimation` == true
@@ -161,7 +150,7 @@ export class CollapseElement extends LitElement {
     * @returns {void}
     */
     _disableAnimation() {
-        this.style.transition = '';
+        this.style.transitionDuration = '0s';
     }
 
     /**
@@ -171,9 +160,9 @@ export class CollapseElement extends LitElement {
     * @returns {void}
     */
     _transitionEnd() {
-        this.style[this.dimensionCSS] === '0px'
+        this.opened === false
             ? this.style.display = 'none'
-            : this.style[this.dimensionCSS] = '';
+            : this.style[this.dimensionCSS] = ''
 
         this.dispatchEvent(
             new CustomEvent('animation-opened-changed', {detail: this.opened})
@@ -184,29 +173,29 @@ export class CollapseElement extends LitElement {
         changedProperties.forEach((oldValue, property) => {
             switch (property) {
                 case 'opened':
-                    if (oldValue === true) this._hide();
-                    else if (oldValue === false) this._show();
-
-                    this.dispatchEvent(new CustomEvent('opened-changed', {detail: this.opened}))
+                    this.openedChanged()
                     break;
                 case 'noAnimation':
-                    oldValue === false
-                        ? this._disableAnimation()
-                        : this._enableAnimation();
+                    this.noAnimationChanged()
                     break;
             }
         });
     }
+    openedChanged() {
+        this.opened ? this._show() : this._hide()
+
+        this.dispatchEvent(new CustomEvent('opened-changed', {detail: this.opened}))
+    }
+    noAnimationChanged() {
+        this.noAnimation ? this._disableAnimation() : this._enableAnimation();
+    }
+
     connectedCallback() {
         super.connectedCallback();
 
-        this.noAnimation
-            ? this._disableAnimation()
-            : this._enableAnimation();
-
         if (!this.opened) {
-            this.style.display = 'none';
-            this.style[this.dimensionCSS] = '0px';
+         this.style.display = 'none';
+         this.style[this.dimensionCSS] = '0px';
         }
     }
     disconnectedCallback() {
