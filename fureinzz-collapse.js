@@ -113,7 +113,7 @@ export class CollapseElement extends LitElement {
         this.style.display = '';
         this.style[this.dimensionCSS] = this.dimensionSize;
 
-        this.setAttribute('tabindex', '');
+        this.removeAttribute('tabindex');
     }
 
     /**
