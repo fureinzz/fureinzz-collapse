@@ -23,7 +23,7 @@ suite('<fureinzz-collapse>', () => {
         assert.equal(component.style.display, 'none')
     })
 
-    test('sdads', done => {
+    test('', done => {
         component.addEventListener('transitionend', () => {
             if(component.opened) {
                 assert.equal(component.opened, true)
