@@ -15,6 +15,7 @@ import { html, LitElement } from 'lit-element';
 *       </div>
 *   </fureinzz-collapse>
 *
+*   @author fureinzz
 *   @demo demo/index.html
 *   @element fureinzz-collapse
 */ 
@@ -72,8 +73,7 @@ export class CollapseElement extends LitElement {
     * 
     * if `horizontal` === true: `maxWidth`
     * else: `maxHeight`
-    * 
-    * @private
+    * @protected
     * @returns {String}
     */ 
     get dimensionCSS() {
@@ -81,10 +81,8 @@ export class CollapseElement extends LitElement {
     }
 
     /**
-    * Returns the height/width value 
-    * depending on the dimension
-    * 
-    * @private
+    * Returns the height/width value depending on the dimension
+    * @protected
     * @returns {String}
     */ 
     get dimensionSize() {
@@ -105,8 +103,7 @@ export class CollapseElement extends LitElement {
     
     /**
     * Expands the content block
-    * 
-    * @private
+    * @protected
     * @returns {void}
     */ 
     _show() {
@@ -118,8 +115,7 @@ export class CollapseElement extends LitElement {
 
     /**
     * Collapses the content block
-    * 
-    * @private
+    * @protected
     * @returns {void}
     */
     _hide() {
@@ -137,16 +133,16 @@ export class CollapseElement extends LitElement {
     /**
     * Enable animation if `noAnimation` === false
     * 
-    * @private
+    * @protected
     * @returns {void}
     */
     _enableAnimation() {
         this.style.transitionDuration = '';
     }
+    
     /**
     * Disables animation if `noAnimation` === true
-    * 
-    * @private
+    * @protected
     * @returns {void}
     */
     _disableAnimation() {
@@ -155,8 +151,7 @@ export class CollapseElement extends LitElement {
 
     /**
     * Handler for the `transitionend` event
-    * 
-    * @private
+    * @protected
     * @returns {void}
     */
     _transitionEnd() {
@@ -169,6 +164,17 @@ export class CollapseElement extends LitElement {
         )
     }
 
+    // Observer's of properties Lifecycle methods
+    openedChanged() {
+        this.opened ? this._show() : this._hide()
+
+        this.dispatchEvent(new CustomEvent('opened-changed', {detail: this.opened}))
+    }
+    noAnimationChanged() {
+        this.noAnimation ? this._disableAnimation() : this._enableAnimation();
+    }    
+
+    // Lifecycle methods
     updated(changedProperties) {
         changedProperties.forEach((oldValue, property) => {
             switch (property) {
@@ -181,15 +187,6 @@ export class CollapseElement extends LitElement {
             }
         });
     }
-    openedChanged() {
-        this.opened ? this._show() : this._hide()
-
-        this.dispatchEvent(new CustomEvent('opened-changed', {detail: this.opened}))
-    }
-    noAnimationChanged() {
-        this.noAnimation ? this._disableAnimation() : this._enableAnimation();
-    }
-
     connectedCallback() {
         super.connectedCallback();
 
