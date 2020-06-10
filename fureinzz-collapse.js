@@ -132,7 +132,6 @@ export class CollapseElement extends LitElement {
 
     /**
     * Enable animation if `noAnimation` === false
-    * 
     * @protected
     * @returns {void}
     */
@@ -164,7 +163,7 @@ export class CollapseElement extends LitElement {
         )
     }
 
-    // Observer's of properties Lifecycle methods
+    // Observer's of properties 
     openedChanged() {
         this.opened ? this._show() : this._hide()
 
