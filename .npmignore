@@ -1,3 +1,7 @@
 /demo
-/test
-wct.conf.json
+
+# ignore the .ts files
+*.ts
+
+# include the .d.ts files
+!*.d.ts
