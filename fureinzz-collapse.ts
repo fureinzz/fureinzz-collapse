@@ -1,5 +1,20 @@
-import { template } from './src/template';
 import {LitElement} from 'lit-element'
+
+const template = document.createElement('template')
+template.innerHTML = `
+    <style>
+        :host{
+            display: block;
+            overflow: hidden;
+            will-change: max-height, max-width;
+            transition-property: max-height, max-width
+        }
+    </style>
+
+    <div>
+        <slot></slot>
+    </div> 
+`
 
 /**
 *  `fureinzz-collapse` creates a collapsible block of content. For interaction, use toggle(), open(), close() or open, 
