@@ -39,37 +39,37 @@ export class fureinzzCollapse extends LitElement {
     static get properties () {
         return {
             /**
-            * Set `opened` to true to show the element, false to collapse it
-            */ 
+             * Set `opened` to true to show the element, false to collapse it
+             **/ 
             opened: { type: Boolean, reflect: true, attribute: true },
 
             /**
-            * If `horizontal` is true, the content opens horizontally, otherwise vertically to true to disable animation
-            */ 
+             * If `horizontal` is true, the content opens horizontally, otherwise vertically to true to disable animation
+             **/ 
             horizontal: { type: Boolean, reflect: true, attribute: true },
 
             /**
-            * Set `noAnimation` to true to disable animation
-            */ 
+             * Set `noAnimation` to true to disable animation
+             **/ 
             noAnimation: { type: Boolean, reflect: true, attribute: true }
         };
     }
 
     /**
-    * Defines a dimension for CSS
-    * 
-    * if `horizontal` === true: `maxWidth`
-    * else: `maxHeight`
-    * @returns {String}
-    */ 
+     * Defines a dimension for CSS
+     * 
+     * if `horizontal` === true: `maxWidth`
+     * else: `maxHeight`
+     * @returns {String}
+     **/ 
     get dimensionCSS (): string {
         return this.horizontal ? 'maxWidth' : 'maxHeight';
     }
 
     /**
-    * Returns the height/width value depending on the dimension
-    * @returns {String}
-    */ 
+     * Returns the height/width value depending on the dimension
+     * @returns {String}
+     **/ 
      get dimensionSize (): string {
         return this.horizontal
             ? this.scrollWidth + 'px'
@@ -89,54 +89,58 @@ export class fureinzzCollapse extends LitElement {
     }
     
     /**
-    * Expands the content block
-    */ 
+     * Expands the content block
+     **/ 
     show (): void {
         this.style.display = '';
         this.style[this.dimensionCSS] = this.dimensionSize;
 
+        // Allowing focus on elements inside the component
         this.removeAttribute('tabindex');
     }
 
     /**
-    * Collapses the content block
-    */
+     * Collapses the content block
+     **/
     hide (): void {
         this.style[this.dimensionCSS] = this.dimensionSize;
         
         // Used for animated transition to the closed state
         let async = setTimeout(() => {
+            
             this.style[this.dimensionCSS] = '0px';
             clearTimeout(async);
         }, 0);
 
+        // Removing the ability to focus on elements inside the component
         this.setAttribute('tabindex', '-1');
     }
 
     /**
-    * Enable animation if `noAnimation` === false
-    * @protected
-    * @returns {void}
-    */
+     * Enable animation if `noAnimation` === false
+     * @protected
+     * @returns {void}
+     **/
     protected enableAnimation (): void {
         this.style.transitionDuration = '';
     }
     
     /**
-    * Disables animation if `noAnimation` === true
-    * @protected
-    * @returns {void}
-    */
+     * Disables animation if `noAnimation` === true
+     * @protected
+     * @returns {void}
+     **/
     protected disableAnimation(): void {
         this.style.transitionDuration = '0s';
     }
 
     /**
-    * Handler for the `transitionend` event
-    * @protected
-    * @returns {void}
-    */
+     * Handler for the `transitionend` event
+     * @protected
+     * @returns {void}
+     **/
     protected transitionEnd (): void {
+        
         this.opened === false
             ? this.style.display = 'none'
             : this.style[this.dimensionCSS] = ''
