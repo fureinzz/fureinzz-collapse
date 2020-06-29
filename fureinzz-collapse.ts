@@ -21,7 +21,7 @@ template.innerHTML = `
 *   in order to hide / show the contents. By default, the contents of the element will be collapsed.
 *   When interacting with the fureinzz-collapse element, it configures the max-width/max-height depending on the specified horizontal attribute and shows/hides the content.
 *
-*   @element fureinzz-collapse
+*   @element `fureinzz-collapse`
 */ 
 export class fureinzzCollapse extends LitElement {
 
@@ -130,7 +130,7 @@ export class fureinzzCollapse extends LitElement {
      * @protected
      * @returns {void}
      **/
-    protected disableAnimation(): void {
+    protected disableAnimation (): void {
         this.style.transitionDuration = '0s';
     }
 
@@ -150,6 +150,7 @@ export class fureinzzCollapse extends LitElement {
         this.dispatchEvent(Event)
     }
 
+    // 
     openedChanged (): void {
         this.opened ? this.show() : this.hide()
 
