@@ -43,11 +43,7 @@ When interacting with the `fureinzz-collapse` element, it configures the max-wid
 
 ## Styling
 
-The following custom properties are available for styling
-
-| Property | Description | Default |
-| --- | --- | --- |
-| `--speed` | The duration of the animation | `300ms` |
+If you want to change the transition speed, change the css property `transition-duration`
 
 ## Usage
 
