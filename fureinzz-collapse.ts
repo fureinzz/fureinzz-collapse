@@ -51,7 +51,7 @@ export class fureinzzCollapse extends LitElement {
             /**
              * Set `noAnimation` to true to disable animation
              **/ 
-            noAnimation: { type: Boolean, reflect: true, attribute: true }
+            noAnimation: { type: Boolean, reflect: true, attribute: 'no-animation' }
         };
     }
 
