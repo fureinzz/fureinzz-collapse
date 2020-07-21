@@ -30,7 +30,7 @@ export class fureinzzCollapse extends LitElement {
     public horizontal: boolean = false
 
     constructor () {
-        super ()
+        super()
 
         // Initializing the component template
         this.shadowRoot.append(template.content.cloneNode(true))
@@ -57,9 +57,6 @@ export class fureinzzCollapse extends LitElement {
 
     /**
      * Defines a dimension for CSS
-     * 
-     * if `horizontal` === true: `maxWidth`
-     * else: `maxHeight`
      * @returns {String}
      **/ 
     get dimensionCSS (): string {
@@ -118,7 +115,6 @@ export class fureinzzCollapse extends LitElement {
 
     /**
      * Enable animation if `noAnimation` === false
-     * @protected
      * @returns {void}
      **/
     protected enableAnimation (): void {
@@ -127,7 +123,6 @@ export class fureinzzCollapse extends LitElement {
     
     /**
      * Disables animation if `noAnimation` === true
-     * @protected
      * @returns {void}
      **/
     protected disableAnimation (): void {
@@ -136,7 +131,6 @@ export class fureinzzCollapse extends LitElement {
 
     /**
      * Handler for the `transitionend` event
-     * @protected
      * @returns {void}
      **/
     protected transitionEnd (): void {
@@ -145,17 +139,21 @@ export class fureinzzCollapse extends LitElement {
             ? this.style.display = 'none'
             : this.style[this.dimensionCSS] = ''
 
+
+        const payload = {opened: this.opened}
         // Dispatch events to the external environment when the animation is finished
-        const Event: CustomEvent = new CustomEvent('animation-opened-changed', {detail: this.opened})
+        const Event: CustomEvent = new CustomEvent('animation-opened-changed', {detail: payload})
+
         this.dispatchEvent(Event)
     }
 
-    // 
     openedChanged (): void {
         this.opened ? this.show() : this.hide()
 
+        const payload = {opened: this.opened}
         // Dispatch events to the external environment
-        const Event: CustomEvent = new CustomEvent('opened-changed', {detail: this.opened})
+        const Event: CustomEvent = new CustomEvent('opened-changed', {detail: payload})
+
         this.dispatchEvent(Event)
     }
 
