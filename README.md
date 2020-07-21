@@ -4,66 +4,80 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/@fureinzz/fureinzz-collapse)
 ![license](https://img.shields.io/github/license/fureinzz/fureinzz-collapse?style=flat-square)
 
-`fureinzz-collapse`  creates a collapsible block of content. For interaction, use `toggle ()`, `open ()`, `close ()` or `open`, in order to hide / show the contents. By default, the contents of the element will be collapsed.
+**`fureinzz-collapse`  creates a collapsible block of content.**
 
 
-When interacting with the `fureinzz-collapse` element, it configures the max-width/max-height depending on the specified `horizontal` attribute and shows/hides the content.
++ **Accessible** -  Collapse uses the animation API for a smooth transition, not javascript, so the component does not load your system for rendering animation.
 
-**Warning:** for proper functioning, do not set  **margin**/**padding**  directly to the object, instead place the block inside the element and style it
++ **Works with any framework** - the component is based on the native `customElements` technology, which makes it possible to use it together with any library or framework
 
-**Example:**
-```html
-<fureinzz-collapse>
-  <div style="padding: 10px; color: grey;">
-    <span>...</span>
-  </div>
-</fureinzz-collapse>
++ **Works with [Shadow DOM](http://https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM "Shadow DOM")** - Collapse works by using the modern technology of Shadow DOM. This approach improves the experience of using web components
+
+## Installation 
+
+We recommend using [npm](https://www.npmjs.com/package/@fureinzz/fureinzz-collapse) for installation
+
+```
+npm install @fureinzz/fureinzz-collapse
 ```
 
-## Properties
-| Property | type | Description | Default |
-| --- | --- | --- | --- |
-| `opened` | Boolean | Set **true** to show object contents | `false` |
-| `noAnimation` | Boolean | Set **true** to disable animation  | `false` |
-| `horizontal` | Boolean | If **true**, the content opens horizontally| `false` |
 
-## Methods
-| Method | Description | 
-| --- | --- | 
-| `open`  | Changes `opened` = **true** and shows the content|
-| `close`  | Changes `opened` = **false** and hides the content |
-| `toggle`  |  Changes `opened` = `!opened` and shows / hides the content depending on the new `opened`value|
 
-## Events
-| Event | Description | 
-| --- | --- | 
-| `opened-changed`  | Triggered when the `opened` state changes |
-| `animation-opened-changed`  |Triggered when the transition animation ends |
 
+## Usage
+Before using the dialog you must import the component module: ( `import "@fureinzz/fureinzz-collapse"` ).  After adding the module, you can use `fureinzz-collapse` in your app
+
+
+To expand the content you must specify the `opened` attribute
+```html
+<fureinzz-collapse opened>
+  <span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+</fureinzz-collapse>
+```
+You can also expand the content using the `opened` property or the `.open() `and `.toggle()` methods
+```javascript
+const collapse = document.querySelector("fureinzz-collapse")
+collapse.open()
+```
 
 ## Styling
 
-If you want to change the transition speed, change the css property `transition-duration`
+The component is easy to style, so you can style it as you like
 
-## Usage
+**Example of what your collapse might look like:**
 
-#### Installation
-```
-npm install --save @fureinzz/fureinzz-collapse
-```
+<div style="text-align: center">
+    <img src="https://cdn1.savepice.ru/uploads/2020/7/21/b03ffc3415359c0c661eb89e2626dd7f-full.jpg" style="border-radius: 6px;"/>
+</div>
 
-#### In an HTML file
+## Properties 
+
+When initializing a component each of the properties presented is false by default
+
++ **opened** -  If `true`, the contents of the collapse will open
++ **horizontal** - If `true`, the orientation will be changed to horizontal 
++ **noAnimation** - If `true`, animation will be disabled
+
+**Example of how you can set a property in an html file:**
 ```html
-<html>
-  <head>
-    <script type="module">
-      import '@fureinzz/fureinzz-collapse/fureinzz-collapse.js'
-    </script>
-  </head>
-  <body>
-    <fureinzz-collapse>
-      <div>...</div>
-    </fureinzz-collapse>
-  </body>
-</html>
+<fureinzz-collapse opened no-animation>
+    <span> Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+</fureinzz-collapse>
+```
+
+## Events 
+The dialog can dispatch 3 types of events to the external environment
+
++ **opened-changed** - Event that is dispatched when the `opened` state changes
++ **animation-opened-changed** - Event that is dispatched when the animation transition ends
+
+```javascript
+    const collapse = document.querySelector("fureinzz-collapse")
+
+    collapse.addEventListener("opened-changed", event => {
+        const detail = event.detail
+       
+        // If the collapse was opened
+        console.log(detail) // {opened: true}
+    })
 ```
