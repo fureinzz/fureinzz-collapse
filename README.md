@@ -22,8 +22,6 @@ npm install @fureinzz/fureinzz-collapse
 ```
 
 
-
-
 ## Usage
 Before using the dialog you must import the component module: ( `import "@fureinzz/fureinzz-collapse"` ).  After adding the module, you can use `fureinzz-collapse` in your app
 
@@ -43,12 +41,6 @@ collapse.open()
 ## Styling
 
 The component is easy to style, so you can style it as you like
-
-**Example of what your collapse might look like:**
-
-<div style="text-align: center">
-    <img src="https://cdn1.savepice.ru/uploads/2020/7/21/d4966841ba360962ab368e4cb63537dd-full.png" style="border-radius: 6px"/>
-</div>
 
 ## Properties 
 
